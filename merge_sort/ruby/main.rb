@@ -1,4 +1,4 @@
-Max = 10000
+MAX = 10000
 
 def merge(array, left, mid, right)
     left_side = array[left..mid]
@@ -7,9 +7,9 @@ def merge(array, left, mid, right)
     left_side << Max
     right_side << Max
 
-    left_idx, right_idx = 0, 0
+    left_idx = right_idx = 0
 
-    (left..right).each { |i|
+    (left..right).each do |i|
         if left_side[left_idx] < right_side[right_idx]
             array[i] = left_side[left_idx]
             left_idx += 1
@@ -17,11 +17,11 @@ def merge(array, left, mid, right)
             array[i] = right_side[right_idx]
             right_idx += 1
         end
-    }
+    end
 end
 
 def merge_sort(array, left, right)
-    if left < right
+    return unless left < right
         mid = (left + right) / 2;
         merge_sort(array, left, mid)
         merge_sort(array, mid + 1, right)
@@ -30,10 +30,7 @@ def merge_sort(array, left, right)
 end
 
 def print_array(array)
-    array.each do |num|
-        print num, " "
-    end
-    puts
+    puts array.join ' '
 
     nil
 end
