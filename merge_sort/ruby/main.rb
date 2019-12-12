@@ -22,17 +22,14 @@ end
 
 def merge_sort(array, left, right)
     return unless left < right
-        mid = (left + right) / 2;
-        merge_sort(array, left, mid)
-        merge_sort(array, mid + 1, right)
-        merge(array, left, mid, right)
-    end
+    mid = (left + right) / 2;
+    merge_sort(array, left, mid)
+    merge_sort(array, mid + 1, right)
+    merge(array, left, mid, right)
 end
 
 def print_array(array)
     puts array.join ' '
-
-    nil
 end
 
 arr = [5, 3, 8, 6, 2, 7, 1, 4]
